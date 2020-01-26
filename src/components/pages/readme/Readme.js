@@ -1,22 +1,24 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-
+import { connect } from 'react-redux';
 import './Readme.css';
 import FieldReadme from './field-readme/FieldReadme';
 
-const Readme = () => {
+
+const Readme = (props) => {
+  const nameBtnReadme = props.setField.length === 0 ? 'README' : 'SHOW';
   return (
     <div className="pages page-readme">
       <div className="readme-heder">
         <h1>
-          README
+          {nameBtnReadme}
         </h1>
       </div>
       <FieldReadme/>
       <div>
           <button type="button" 
                   className="btn btn-outline-secondary btn-style">
-            README
+            {nameBtnReadme}
           </button>
         <NavLink to='/'>
           <button className="btn btn-outline-success btn-style">
@@ -33,5 +35,15 @@ const Readme = () => {
     </div>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    setField: state.setField   
+  }
+}
 
-export default Readme;
+export default connect(mapStateToProps, null)(Readme);
+
+
+
+
+

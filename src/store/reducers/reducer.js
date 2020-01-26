@@ -1,25 +1,25 @@
-import { getData_A, getValue_A, setFieldSudoku_A, clearFieldSudoku_A } from '../actions/actionCreators';
+import { GET_DATA, GET_VALUE, SET_FIELD_SUDOKU, CLEAR_FIELD_SUDOKU } from '../actions/actionCreators';
 
 const reducer = (store, action) => {
   switch (action.type) {
-    case getData_A:
+    case GET_DATA:
       return {
         ...store, 
         valueList: action.valueList,
         checkField: action.checkField,
         errorItem:  action.errorItem
       };
-      case getValue_A:
+      case GET_VALUE:
       return {
         ...store, 
         valueList: action.valueList
       };
-      case setFieldSudoku_A:
+      case SET_FIELD_SUDOKU:
       return {
         ...store, 
         setField: action.setField
       };
-      case clearFieldSudoku_A:
+      case CLEAR_FIELD_SUDOKU:
       return {
         ...store, 
         clearField: action.clearField

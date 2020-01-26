@@ -1,7 +1,7 @@
-import { clearFieldSudoku_A } from './actionCreators'
+import { CLEAR_FIELD_SUDOKU } from './actionCreators'
 
 const clearFieldSudoku = (a) => ({
-         type: clearFieldSudoku_A, 
+         type: CLEAR_FIELD_SUDOKU, 
          clearField: a  
 });
 

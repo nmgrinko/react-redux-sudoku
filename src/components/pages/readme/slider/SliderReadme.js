@@ -29,7 +29,6 @@ const SliderReadme = ({setField}) => {
         });   
       }
   })
-  
   const settings = {
     dots: false,
     focusOnSelect: false,
@@ -38,7 +37,6 @@ const SliderReadme = ({setField}) => {
     slidesToScroll: 1,
     initialSlide: initialSlide
   };
- 
   return(
     <div>
        <Slider {...settings}>
@@ -57,11 +55,10 @@ const SliderReadme = ({setField}) => {
                 in a U.S. newspaper, and then The Times (London), 
                 in 2004, thanks to the efforts of <em>Wayne Gould,  who 
                 devised a computer program to rapidly produce unique puzzles.</em>
-              <br/>
+                <br/>
                 &nbsp; This program solves and saves what Wayne Gould has done.
               </p> 
             </div>
-            
       </Slider>
       { React.createElement('div', null)}
 </div>

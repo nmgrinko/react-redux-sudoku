@@ -23,6 +23,8 @@ const Sudoku = (props) => {
         } = props;
   const initialState = valueList.includes(0) ? 'Get Result' : 'СLEAR';
   const [state, setState] = useState(initialState);
+  const initialStateBtn = props.setField.length === 0 ? 'README' : 'SHOW';
+  const [stateBtn, setStateBtn] = useState(initialStateBtn);
   const fieldWork = () => {
     if (!valueList.every(elem => elem === 0)) {
       if (checkField){
@@ -37,6 +39,7 @@ const Sudoku = (props) => {
       const listCanvas = setField.concat();
       listCanvas.push(canvas);
       setFieldSudoku(listCanvas);
+      setStateBtn('SHOW');
     }); 
   }
   const resetValues = () => {
@@ -58,7 +61,6 @@ const Sudoku = (props) => {
   const loading = () => {
     document.getElementById('start').classList.add('spinner-border');
     document.getElementById('stop').innerText = '';
-    
   }
   const name =  <span className="loading">
                   <div className="loadingRol text-success" role="status"
@@ -73,22 +75,20 @@ const Sudoku = (props) => {
       </div>
       <FieldSudoku/>
       <div>
-      <NavLink to='/readme'>
+        <NavLink to='/readme'>
           <button type="button" 
                   className="btn btn-outline-secondary btn-style"        
           >
-           README
+           {stateBtn}
           </button>
         </NavLink>
-        
-        <button className="btn btn-outline-success btn-style"
-                  id='get'
-                  onMouseDown={loading}
-                  onClick={onClick}
-        > 
+          <button className="btn btn-outline-success btn-style"
+                    id='get'
+                    onMouseDown={loading}
+                    onClick={onClick}
+          > 
           {state}
-        </button>
-    
+          </button>
         <NavLink to='/contact'>
           <button type="button" 
                   className="btn btn-outline-secondary btn-style"  

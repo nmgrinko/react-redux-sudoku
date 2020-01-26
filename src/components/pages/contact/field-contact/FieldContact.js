@@ -1,20 +1,16 @@
 import React from 'react';
 import './FieldContact.css';
-
 import viber from '../images/viber.svg';
 import telegram from '../images/telegram.svg';
 import github from '../images/github.svg';
-
 import myLogo from '../images/myLogo.svg';
 
 
 const FieldContact = () => {
-  
   return(
     <div className='field-contact-div'>
       <img src={myLogo} className="myLogo" alt="logo" />
       <h3 className="myName">Nikolay Grinko</h3>
-      
       <div className="btn-contact">
       <a href="viber://add?number=375297191896">
         <img src={viber} className="btn-viber" alt="viber"/>

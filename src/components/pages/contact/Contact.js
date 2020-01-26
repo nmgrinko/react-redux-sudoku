@@ -1,11 +1,12 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Contact.css';
-
 import FieldContact from './field-contact/FieldContact';
 
 
-const Contact = () => {
+const Contact = (props) => {
+  const nameBtnReadme = props.setField.length === 0 ? 'README' : 'SHOW';
   return (
     <div className="pages page-contact">
       <div className="contact-heder">
@@ -18,7 +19,7 @@ const Contact = () => {
         <NavLink to='/readme'>
           <button type="button" 
                   className="btn btn-outline-secondary btn-style">
-            README
+            {nameBtnReadme}
           </button>
         </NavLink>
         <NavLink to='/'>
@@ -35,6 +36,10 @@ const Contact = () => {
   )
 }
 
-export default Contact;
+const mapStateToProps = (state) => {
+  return {
+    setField: state.setField   
+  }
+}
 
-
+export default connect(mapStateToProps, null)(Contact);

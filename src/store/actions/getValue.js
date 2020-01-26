@@ -1,7 +1,7 @@
-import { getValue_A } from './actionCreators'
+import { GET_VALUE } from './actionCreators'
 
 const getValue = (a) => ({
-         type: getValue_A, 
+         type: GET_VALUE, 
          valueList: a
 });
 

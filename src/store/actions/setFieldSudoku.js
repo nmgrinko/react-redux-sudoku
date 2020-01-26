@@ -1,7 +1,7 @@
-import { setFieldSudoku_A } from './actionCreators'
+import { SET_FIELD_SUDOKU } from './actionCreators'
 
 const setFieldSudoku = (a) => ({
-            type: setFieldSudoku_A, 
+            type: SET_FIELD_SUDOKU, 
             setField: a
         });
 

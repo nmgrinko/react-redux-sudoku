@@ -1,7 +1,7 @@
-import { getData_A } from './actionCreators'
+import { GET_DATA } from './actionCreators'
 
 const getData = (a, b, c) => ({
-         type: getData_A, 
+         type: GET_DATA, 
          valueList: a,
          checkField: b,
          errorItem: c   
