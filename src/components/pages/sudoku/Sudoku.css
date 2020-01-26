@@ -1,0 +1,38 @@
+.pages {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #24c280;
+}
+
+.btn-style {
+  width: 105px;
+  margin: 0  8px 15px 8px;
+}
+
+.title {
+  float: left;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.loading {
+  float: left;
+}
+
+.loadingRol {
+  float: left;
+  margin-top: 10px;
+}
+
+#stop {
+  padding-top: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
