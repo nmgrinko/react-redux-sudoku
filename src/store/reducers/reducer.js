@@ -1,4 +1,4 @@
-import { GET_DATA, GET_VALUE, SET_FIELD_SUDOKU, CLEAR_FIELD_SUDOKU } from '../actions/actionCreators';
+import { GET_DATA, GET_VALUE, SET_FIELD_SUDOKU, CLEAR_FIELD_SUDOKU, UPDATE_SUDOKU } from '../actions/actionCreators';
 
 const reducer = (store, action) => {
   switch (action.type) {
@@ -23,6 +23,11 @@ const reducer = (store, action) => {
       return {
         ...store, 
         clearField: action.clearField
+      };
+      case UPDATE_SUDOKU:
+      return {
+        ...store, 
+        updateSudoku: action.updateSudoku
       };
     default: return store
   }

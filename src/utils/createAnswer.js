@@ -27,6 +27,15 @@ const createAnswer = (idList, valueList, conditions) => {
             if(resultFieldСheck[0]) { break };
          } else {
             valueListResult[indexId] = 0;
+            if(i === 0) { 
+               const valueListError = valueListResult.map((item) => item === 0 ? 'X': item);
+               for(let l = 0; l < 9; l++) {
+                  const errorText = 'NOTRESULT';
+                  const id = l + 36;
+                  valueListError[id] = errorText.charAt(l);
+               }
+               return valueListError 
+            };
             i = i - 2;
          }    
       }

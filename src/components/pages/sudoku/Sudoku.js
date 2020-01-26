@@ -19,18 +19,17 @@ const Sudoku = (props) => {
          setField,
          getValue,
          setFieldSudoku,
-         clearFieldSudoku
+         clearFieldSudoku,
+         updateSudoku
         } = props;
-  const initialState = valueList.includes(0) ? 'Get Result' : 'СLEAR';
+  const nameBtnSudoku = valueList.includes(0) ? 'Get Result' : 'СLEAR';
+  const initialState = props.setField.length === 0 ? 'README' : 'SHOW';
   const [state, setState] = useState(initialState);
-  const initialStateBtn = props.setField.length === 0 ? 'README' : 'SHOW';
-  const [stateBtn, setStateBtn] = useState(initialStateBtn);
   const fieldWork = () => {
     if (!valueList.every(elem => elem === 0)) {
       if (checkField){
         const newValueList = createAnswer(idList, valueList, conditions);
         getValue(newValueList);
-        setState('СLEAR');
       } 
     }            
   } 
@@ -39,7 +38,7 @@ const Sudoku = (props) => {
       const listCanvas = setField.concat();
       listCanvas.push(canvas);
       setFieldSudoku(listCanvas);
-      setStateBtn('SHOW');
+      setState('SHOW');
     }); 
   }
   const resetValues = () => {
@@ -47,7 +46,6 @@ const Sudoku = (props) => {
     newValueList.fill(0);
     getValue(newValueList);
     clearFieldSudoku(!clearField);
-    setState('Get Result');
   }
   const onClick = () => {
     if(valueList.includes(0)){
@@ -79,15 +77,16 @@ const Sudoku = (props) => {
           <button type="button" 
                   className="btn btn-outline-secondary btn-style"        
           >
-           {stateBtn}
+           {state}
           </button>
         </NavLink>
           <button className="btn btn-outline-success btn-style"
                     id='get'
                     onMouseDown={loading}
                     onClick={onClick}
+                    update={'' + updateSudoku}
           > 
-          {state}
+          {nameBtnSudoku}
           </button>
         <NavLink to='/contact'>
           <button type="button" 
@@ -113,7 +112,8 @@ const mapStateToProps = (state) => {
     conditions: state.conditions,
     checkField: state.checkField,
     clearField: state.clearField,
-    setField: state.setField   
+    setField: state.setField,
+    updateSudoku: state.updateSudoku   
   }
 }
 const mapDispatchToProps = {
