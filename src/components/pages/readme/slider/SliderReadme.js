@@ -43,21 +43,24 @@ const SliderReadme = ({setField}) => {
             {rew()}
             <div className='info-readme-div'>
               <h5>Information</h5>
-              <p style={{fontSize: '15px'}} className="text-justify"> 
-                &nbsp; French newspapers featured variations of 
-                the <b>Sudoku</b> puzzles in the 19th century, 
-                and the puzzle has appeared since 1979 in
-                puzzle books under the name Number Place. 
-                However, the modern <b>Sudoku</b> only began to gain 
+              <p className="text-justify"> 
+                &nbsp; Number puzzles appeared in newspapers in the 
+                late 19th century, when French puzzle setters began 
+                experimenting with removing numbers from magic squares.
+                However, the modern Sudoku only began to gain 
                 widespread popularity in 1986 when it was published 
                 by the Japanese puzzle company Nikoli under the name 
-                Sudoku, meaning "single number". It first appeared 
+                <b> Sudoku</b>, meaning "single number". It first appeared 
                 in a U.S. newspaper, and then The Times (London), 
-                in 2004, thanks to the efforts of <em>Wayne Gould,  who 
-                devised a computer program to rapidly produce unique puzzles.</em>
+                in 2004, thanks to the efforts of <em>Wayne Gould</em>,  who 
+                devised a computer program to rapidly produce unique puzzles.
                 <br/>
                 &nbsp; This program solves and saves what Wayne Gould has done.
-              </p> 
+              </p>
+              <h5>The program has a limitation:</h5>
+              <p style={{fontSize: '15px'}} className="text-justify">
+                 &nbsp;The limit of iterations is <b>400,000 </b>to save you time.
+              </p>
             </div>
       </Slider>
       { React.createElement('div', null)}
