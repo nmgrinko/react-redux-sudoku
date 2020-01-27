@@ -36,3 +36,8 @@
   font-weight: 700;
 }
 
+button:active, button:hover, button:focus {
+  outline: 0;
+  outline-offset: 0;
+
+}

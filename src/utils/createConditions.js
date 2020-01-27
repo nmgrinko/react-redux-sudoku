@@ -1,4 +1,3 @@
-let flag = false;  // подключить проверку по диагоналям
 
 const createConditions = (idList) => {
   const blockLine = () => {
@@ -46,17 +45,11 @@ const createConditions = (idList) => {
     return horizontalLine
   }
   const horizontal = horizontalLine();
-
- const diagonal = [['11', '15', '19', '51', '55', '59', '91', '95', '99'], 
-                   ['33', '35', '37', '53', '55', '57', '73', '75', '77']]
  
   let dataLine = [];
   dataLine = dataLine.concat(block);
   dataLine = dataLine.concat(vertical);
   dataLine = dataLine.concat(horizontal);
-  if (flag) {
-  dataLine = dataLine.concat(diagonal);
-  }
   return  dataLine;
 }
 

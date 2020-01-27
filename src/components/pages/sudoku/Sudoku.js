@@ -5,10 +5,11 @@ import html2canvas from 'html2canvas';
 import './Sudoku.css';
 import FieldSudoku from './field-sudoku/FieldSudoku';
 import createAnswer from '../../../utils/createAnswer';
+import diagonalCondition from '../../../utils/addConditions';
 import getValue from '../../../store/actions/getValue';
 import setFieldSudoku from '../../../store/actions/setFieldSudoku';
 import clearFieldSudoku from '../../../store/actions/clearFieldSudoku';
-
+import setOption from '../../../store/actions/setOption';
 
 const Sudoku = (props) => {
   const {valueList,
@@ -20,11 +21,17 @@ const Sudoku = (props) => {
          getValue,
          setFieldSudoku,
          clearFieldSudoku,
-         updateSudoku
+         updateSudoku,
+         setOption
         } = props;
   const nameBtnSudoku = valueList.includes(0) ? 'Get Result' : 'СLEAR';
-  const initialState = props.setField.length === 0 ? 'README' : 'SHOW';
-  const [state, setState] = useState(initialState);
+  const classicOptions = conditions.length > 27 ? "btn btn-outline-secondary btn-style" : "btn btn-outline-success btn-style";
+  const diagonOptions = conditions.length > 27 ? "btn btn-outline-success btn-style" : "btn btn-outline-secondary btn-style";
+  const initialStateBtnReadme = props.setField.length === 0 ? 'README' : 'SHOW';
+  const [stateBtnReadme, setStateBtnReadme] = useState(initialStateBtnReadme);
+  const initialStateSpiner = {class: 'loadingRol text-success', text: 'O'}
+  const newStateSpiner = {class: 'loadingRol text-success spinner-border', text: ''}
+  const [stateSpiner, setStateSpiner] = useState(initialStateSpiner);
   const fieldWork = () => {
     if (!valueList.every(elem => elem === 0)) {
       if (checkField){
@@ -38,7 +45,7 @@ const Sudoku = (props) => {
       const listCanvas = setField.concat();
       listCanvas.push(canvas);
       setFieldSudoku(listCanvas);
-      setState('SHOW');
+      setStateBtnReadme('SHOW');
     }); 
   }
   const resetValues = () => {
@@ -53,18 +60,25 @@ const Sudoku = (props) => {
     } else {
       resetValues();
     }
-    document.getElementById('start').classList.remove('spinner-border');
-    document.getElementById('stop').innerText = 'O';
+    setStateSpiner(initialStateSpiner)
+  }
+  const options = () => {
+    let newConditions = conditions;
+    if (conditions.length === 27) {
+      newConditions = newConditions.concat(diagonalCondition);
+    } else {
+      newConditions = newConditions.slice(0, 27);
+    }
+    setOption(newConditions);
   }
   const loading = () => {
-    document.getElementById('start').classList.add('spinner-border');
-    document.getElementById('stop').innerText = '';
+    setStateSpiner(newStateSpiner)
   }
   const name =  <span className="loading">
-                  <div className="loadingRol text-success" role="status"
+                  <div className={stateSpiner.class} role="status"
                     id='start'>
                   </div>
-                  <h1 id='stop'>O</h1>
+                  <h1 id='stop'>{stateSpiner.text}</h1>
                 </span>
   return (
     <div className="pages">
@@ -73,13 +87,13 @@ const Sudoku = (props) => {
       </div>
       <FieldSudoku/>
       <div>
-        <NavLink to='/readme'>
+        <div>
           <button type="button" 
-                  className="btn btn-outline-secondary btn-style"        
+                  className={classicOptions}
+                  onClick={options}
           >
-           {state}
-          </button>
-        </NavLink>
+            сlassic
+          </button>       
           <button className="btn btn-outline-success btn-style"
                     id='get'
                     onMouseDown={loading}
@@ -88,21 +102,37 @@ const Sudoku = (props) => {
           > 
           {nameBtnSudoku}
           </button>
-        <NavLink to='/contact'>
           <button type="button" 
-                  className="btn btn-outline-secondary btn-style"  
+                  className={diagonOptions}
+                  onClick={options}
           >
-            CONTACT
+            diagonals
           </button>
-        </NavLink>
         </div>
+        <div>
+          <NavLink to='/readme'>
+            <button type="button" 
+                    className="btn btn-outline-secondary btn-style"        
+            >
+            {stateBtnReadme}
+            </button>
+          </NavLink>
           <button type="button" 
                   className="btn btn-outline-secondary btn-style"
                   onClick={sat_Field}
           >
             SAVE
           </button>
+          <NavLink to='/contact'>
+            <button type="button" 
+                    className="btn btn-outline-secondary btn-style"  
+            >
+              CONTACT
+            </button>
+           </NavLink>
         </div>
+      </div>
+    </div>
   )
 }
 const mapStateToProps = (state) => {
@@ -119,7 +149,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getValue: getValue,
   setFieldSudoku: setFieldSudoku,
-  clearFieldSudoku: clearFieldSudoku
+  clearFieldSudoku: clearFieldSudoku,
+  setOption: setOption
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sudoku)
