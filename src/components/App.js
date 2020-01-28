@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch,  Route} from 'react-router-dom';
+import {BrowserRouter, Switch,  Route, Redirect} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../store/store';
 import Sudoku from './pages/sudoku/Sudoku';
@@ -15,6 +15,7 @@ const App = () => {
           <Route path={'/'} exact component={Sudoku} />
           <Route path={'/contact'} component={Contact} />
           <Route path={'/readme'} component={Readme} />
+          <Redirect to={'/'} />
         </Switch>
       </BrowserRouter>
     </Provider> 

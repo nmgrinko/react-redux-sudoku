@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './SliderReadme.css';
-import loadField from './images/imgField.svg';
 import { connect } from 'react-redux';
 import setIterationLimit from '../../../../store/actions/setIterationLimit';
 
@@ -12,7 +11,6 @@ const SliderReadme = (props) => {
          iterationLimit, 
          setIterationLimit
   } = props;
-  
 
   let initialSlide = 0;
   if (setField.length > 0) {
@@ -21,21 +19,20 @@ const SliderReadme = (props) => {
   const rew = () => {
     if (setField.length > 0) {
       return setField.map((item, index) => {
-         return   <img src={loadField} alt="loadField" id={index + 100} key={index + 100}/>
-                  
-                })          
+        const imgBase64 = item.toDataURL("image/jpeg");
+        return <img src={imgBase64} alt="loadField" 
+                    width={item.style.width} 
+                    height={item.style.height} 
+                    key={index+100} />       
+      })          
     } else {return null}
   }
-  useEffect(()=>{
-      if (setField.length > 0) {
-        setField.forEach((elem, index) => {
-            document.getElementById(index + 100).replaceWith(elem);
-        });   
-      }
-  })
+
   const getLimit = (event) => {
+    if(setField.length === 0) {
     const newLimit = +event.target.value;
     setIterationLimit(newLimit);
+    }
   }
   const setLimit = <input type='number' 
                           value={iterationLimit} 
