@@ -15,6 +15,7 @@ const Sudoku = (props) => {
   const {valueList,
          idList,
          conditions,
+         iterationLimit,
          checkField,
          clearField,
          setField,
@@ -35,14 +36,14 @@ const Sudoku = (props) => {
   const fieldWork = () => {
     if (!valueList.every(elem => elem === 0)) {
       if (checkField){
-        const newValueList = createAnswer(idList, valueList, conditions);
+        const newValueList = createAnswer(idList, valueList, conditions, iterationLimit);
         getValue(newValueList);
       } 
     }            
   } 
   const sat_Field = () => {
     html2canvas(document.querySelector("#fieldSudoku")).then(canvas => {
-      const listCanvas = setField.concat();
+      const listCanvas = setField;
       listCanvas.push(canvas);
       setFieldSudoku(listCanvas);
       setStateBtnReadme('SHOW');
@@ -143,7 +144,8 @@ const mapStateToProps = (state) => {
     checkField: state.checkField,
     clearField: state.clearField,
     setField: state.setField,
-    updateSudoku: state.updateSudoku   
+    updateSudoku: state.updateSudoku,
+    iterationLimit: state.iterationLimit   
   }
 }
 const mapDispatchToProps = {

@@ -14,7 +14,8 @@ const preloadedState = (() => {
         }
     }
     const conditions = createConditions(idList);  
-    return {checkField: false,
+    return {iterationLimit: 100000,
+            checkField: false,
             clearField: false,
             updateSudoku: false,
             idList: idList,

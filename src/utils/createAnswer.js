@@ -1,8 +1,6 @@
 import fieldСheck from './fieldСheck'
 
-const createAnswer = (idList, valueList, conditions) => { 
-   
-   const ITERATION_LIMIT = 400000;
+const createAnswer = (idList, valueList, conditions, iterationLimit) => { 
 
    let valueListResult = valueList.concat();
    let idListUnoccupied = [];
@@ -13,7 +11,7 @@ const createAnswer = (idList, valueList, conditions) => {
    }
    let stopIteration = 0;
    for(let i = 0; i < idListUnoccupied.length; i++) {
-      if(stopIteration > ITERATION_LIMIT) {
+      if(stopIteration > iterationLimit) {
          return valueListResult
       }
       const id = idListUnoccupied[i];

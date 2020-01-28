@@ -12,3 +12,25 @@ p {
  font-size: 13.4px;
  margin-bottom: 8px;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.limit {
+    text-align: center;
+    color: #cacbce;
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid #cacbce;
+    font-size: 15px;
+    background-color: transparent;
+}

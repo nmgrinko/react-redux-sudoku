@@ -1,4 +1,4 @@
-import { GET_DATA, GET_VALUE, SET_FIELD_SUDOKU, CLEAR_FIELD_SUDOKU, UPDATE_SUDOKU, SET_OPTION } from '../actions/actionCreators';
+import { GET_DATA, GET_VALUE, SET_FIELD_SUDOKU, CLEAR_FIELD_SUDOKU, UPDATE_SUDOKU, SET_OPTION, SET_ITERATION_LIMIT } from '../actions/actionCreators';
 
 const reducer = (store, action) => {
   switch (action.type) {
@@ -33,6 +33,12 @@ const reducer = (store, action) => {
       return {
         ...store, 
         conditions: action.conditions
+      };
+      
+      case SET_ITERATION_LIMIT:
+      return {
+        ...store, 
+        iterationLimit: action.iterationLimit
       };
     default: return store
   }

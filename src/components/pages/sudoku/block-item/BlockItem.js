@@ -26,6 +26,7 @@ function BlockItem(props) {
   return(
     <div className={style} id={id + id} clear={'' + clearField}>
        <input type='text'
+              inputMode='numeric'
               name='name'
               value={value}              
               autoComplete='off'

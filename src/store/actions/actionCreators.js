@@ -4,3 +4,4 @@ export const CLEAR_FIELD_SUDOKU = 'CLEAR_FIELD_SUDOKU';
 export const GET_VALUE = 'GET_VALUE';
 export const UPDATE_SUDOKU = 'UPDATE_SUDOKU';
 export const SET_OPTION = 'SET_OPTION';
+export const SET_ITERATION_LIMIT='ITERATION_LIMIT';
