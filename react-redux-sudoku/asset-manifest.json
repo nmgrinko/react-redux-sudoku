@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.28f27f4e.chunk.css",
+    "main.js": "/static/js/main.bee202a4.chunk.js",
+    "main.js.map": "/static/js/main.bee202a4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9db45052.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9db45052.js.map",
+    "static/css/2.31b87c6b.chunk.css": "/static/css/2.31b87c6b.chunk.css",
+    "static/js/2.04bb29ac.chunk.js": "/static/js/2.04bb29ac.chunk.js",
+    "static/js/2.04bb29ac.chunk.js.map": "/static/js/2.04bb29ac.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.acf9c133f8458fb65f8115e867ffba44.js": "/precache-manifest.acf9c133f8458fb65f8115e867ffba44.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.31b87c6b.chunk.css.map": "/static/css/2.31b87c6b.chunk.css.map",
+    "static/css/main.28f27f4e.chunk.css.map": "/static/css/main.28f27f4e.chunk.css.map",
+    "static/js/2.04bb29ac.chunk.js.LICENSE": "/static/js/2.04bb29ac.chunk.js.LICENSE",
+    "static/media/github.svg": "/static/media/github.66f732da.svg",
+    "static/media/myLogo.svg": "/static/media/myLogo.b9482741.svg",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+    "static/media/telegram.svg": "/static/media/telegram.e5790f56.svg",
+    "static/media/viber.svg": "/static/media/viber.4a0ee15e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9db45052.js",
+    "static/css/2.31b87c6b.chunk.css",
+    "static/js/2.04bb29ac.chunk.js",
+    "static/css/main.28f27f4e.chunk.css",
+    "static/js/main.bee202a4.chunk.js"
+  ]
+}

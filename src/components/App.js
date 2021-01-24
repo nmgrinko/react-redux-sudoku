@@ -6,6 +6,7 @@ import Sudoku from './pages/sudoku/Sudoku';
 import Contact from './pages/contact/Contact';
 import Readme from './pages/readme/Readme';
 
+import './App.css'
 
 const App = () => {
   return (

@@ -10,7 +10,7 @@ const Readme = (props) => {
   const nameBtnReadme = props.setField.length === 0 ? 'README' : 'CLEAR';
   const clearSlide = () => {props.setFieldSudoku([])}
   return (
-    <div className="pages page-readme">
+    <div className="page-readme">
       <div className="readme-heder">
         <h1>
           {nameHeader}

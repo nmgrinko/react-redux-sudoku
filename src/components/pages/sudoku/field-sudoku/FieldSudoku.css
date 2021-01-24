@@ -1,7 +1,8 @@
 .field-sudoku-div {
-  width: 366px;
-  height: 366px;
+  width: 363px;
+  height: 363px;
+  margin: 0;
+  padding: 0;
   margin-bottom: 0.7rem;
-  background-color: #24c280;
 }
 
